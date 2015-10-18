@@ -1,0 +1,20 @@
+Git Logs :
+git log --since="2014-04-12"
+git log --author="User name"
+git log --before="2014-04-12"
+#################################################################
+git add delete.txt
+git commit -m 'Random Change'
+git commit --amend
+################################################################
+git add Delete.txt
+
+git reset Head Delete.txt (Unstaged a file)
+
+###############################################################
+git push da --tags
+git log --pretty=oneline
+git tag -a v0.1 0c8d03
+git tag
+git push da --tags
+ 
