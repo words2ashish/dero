@@ -1,0 +1,2 @@
+Congratulations!
+Puppet has created this file.

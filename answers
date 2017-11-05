@@ -1,0 +1,16 @@
+dmin-email = root@localhost
+ssl-set-org = ashit
+ssl-set-org-unit = IT
+ssl-set-city = Delhi
+ssl-set-state = Delhi
+ssl-set-country = IN
+ssl-password = spacewalkpasswd
+ssl-set-email = root@localhost
+ssl-config-sslvhost = Y
+db-backend=postgresql
+db-name=spacewalkdb
+db-user=spacewalk
+db-password=spacewalkpasswd
+db-host=localhost
+db-port=5432
+enable-tftp=Y
