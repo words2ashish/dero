@@ -17,4 +17,13 @@ git log --pretty=oneline
 git tag -a v0.1 0c8d03
 git tag
 git push da --tags
- 
+#################################################################
+To get the git root directory in one command
+git rev-parse --show-toplevel
+
+From the git rev-parse man page:
+
+   --show-toplevel
+       Show the absolute path of the top-level directory.
+
+##################################################################
