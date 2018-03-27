@@ -1,0 +1,1 @@
+s(){ printf "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";}; s; printf '`date`:\t '; date; printf '`hwclock`: '; hwclock; s; printf '`ntpq -pn`:\n\n'; ntpq -pn; s; printf '`ntpq -c as`:\n'; ntpq -c as; for id in $(ntpq -c as | awk '/^ ./{print $2}'); do s; printf "\`ntpq -c \"rv $id\"\`:\n\n"; ntpq -c "rv $id"; done
