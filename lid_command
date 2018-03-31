@@ -1,0 +1,12 @@
+[ashish@Thinktank Linux]$ sudo lid ashish
+ root(gid=0)
+ wheel(gid=10)
+ ashish(gid=1000)
+
+[ashish@Thinktank Linux]$ sudo lid -g ashish
+ ashish(uid=1000)
+
+[ashish@Thinktank Linux]$ sudo lid -g wheel
+ ashish(uid=1000)
+
+[ashish@Thinktank Linux]$
