@@ -1,5 +1,0 @@
-#Command to check whether line exits in a file and if not, insert it.
-
-#Double pipe execute the first command, if it succeeds then it stops execution, if no the second one will be executed
-
-grep -q -F 'include /configs/projectname.conf' test.txt || sed -i '2i include /configs/projectname.conf' test.txt
