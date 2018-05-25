@@ -1,0 +1,5 @@
+# script /tmp/$HOSTNAME-02032613.txt
+
+while [ 1 ]; do echo "====== `date` ======" ; ps -ealf ; printf '\n' ;sleep 1; done
+
+grep -v "====" server-02032613.txt | awk '{print $NF}' | sort | uniq -c | egrep -v "\[.*\]" | awk '$1 < 5 && $1 > 2'
