@@ -20,4 +20,18 @@ server.emea.int 15:00:16 up 372 days, 2:28, 2 users, load average: 0.00, 0.00, 0
 
 HOSTNAME=`echo $FQDN |awk -F. '{ print $1 }'`
 DOMAIN=`echo $FQDN |awk -F. '{$1="";OFS="." ; print $0}' | sed 's/^.//' `
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+for i in `cat gateway.txt`; do echo ******************$i********************; ssh -o ConnectTimeout=10 jpamgmt@$i "sudo su - oracle -c
+/home/oracle/oracle_backup.sh && sudo su - oracle -c 'find /orahome/Database/diag/rdbms/emrepcta/EMREPCTA/trace -type f -name '*trc' -exec
+rm -rf {} \;' && sudo su - oracle -c 'find /orahome/Database/diag/rdbms/emrepcta/EMREPCTA/trace -type f -name '*trm' -exec rm -rf {} \;' &&
+/bin/df -hP";done
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+To find out range of IPs:
+
+for i in {1..254} ;do (ping 192.168.1.$i -c 1 -w 5  >/dev/null && echo "192.168.1.$i" &) ;done
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
