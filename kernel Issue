@@ -1,0 +1,34 @@
+mkdir -p /mnt/sysimage/
+
+fdisk -l
+# observe /boot partition, assumed /dev/sda1 here
+
+lvm pvscan
+lvm vgscan
+lvm lvscan
+# observe root partition, assumed /dev/mapper/vg-lv here
+
+mount /dev/mapper/vg-lv /mnt/sysimage/
+mount /dev/sda1 /mnt/sysimage/boot/
+
+mount /proc /mnt/sysimage/proc/ -o bind -t proc
+mount /dev /mnt/sysimage/dev/ -o bind
+mount /sys /mnt/sysimage/sys/ -o bind -t sysfs
+
+chroot /mnt/sysimage/
+
+
+Mount the CD and reinstall the filesystem, kernel, grub and redhat-logos packages from the /Packages directory with something like rpm -ivh --force /mnt/cd/Packages/<package-filename>.rpm
+
+Copy the GRUB config file back with cp /etc/grub.conf /boot/grub/grub.conf and link it to menu.lst with cd /boot/grub; ln -s ./grub.conf menu.lst
+
+Perform a GRUB installation with grub then find /grub/stage1 and root (hdX,Y) and setup (hdX)
+
+I managed to recover a virtual machine this way, simulating your error with rm -rf /boot/*
+
+
+**********************************************************************************************************************
+
+rpm -ivh --force --noscripts --root=/mnt/sysimage packagename
+
+**********************************************************************************************************************
