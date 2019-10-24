@@ -1,0 +1,5 @@
+Commands to recover Software raid
+
+ mdadm --examine --scan >> /etc/mdadm.conf
+ 
+ mdadm --assemble --scan /dev/md0
