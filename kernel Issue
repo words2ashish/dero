@@ -32,3 +32,19 @@ I managed to recover a virtual machine this way, simulating your error with rm -
 rpm -ivh --force --noscripts --root=/mnt/sysimage packagename
 
 **********************************************************************************************************************
+Another action plan.
+
+1. We found similar machine with same architecture and release.
+2. Get the backup as follows.
+
+# tar cvf /tmp/data.tar /bin /sbin /usr/bin /usr/sbin /lib /lib64 /usr/lib /usr/lib64
+
+3. Then boot your bad machine into rescue, configure networking. Don't chroot but go into shell and run the commands below from the rescue environment machine itself.
+
+# scp <user>@remote:/tmp/data.tar /mnt/sysimage
+# cd /mnt/sysimage
+# tar xvf data.tar
+
+4. Then simply boot your machine back into normal mode and see if that boots your system properly or not.
+
+**********************************************************************************************************************
