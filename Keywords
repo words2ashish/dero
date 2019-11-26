@@ -1,0 +1,1 @@
+zcat messages-20191120.gz |egrep -i "err|fail|drop|disc|buff" | grep -i eth0
