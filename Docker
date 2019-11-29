@@ -1,0 +1,47 @@
+
+1 . cd c:/program files/docker/docker
+    .\dockercli -Version
+        TO check the CLI vrsion
+2. docker image ls - List out the images from docker host
+3. docker container ls - list out the active container 
+4. docker system info
+5. docker-compose --version
+6. docker-machine --version
+7. notary --version
+8. docker container run -it ubuntu:latest /bin/bash
+  * -it - means attaching exisiting shell with the container shell 
+9. docker container exec -it ubuntu:latest /bin/bash
+  * attaching the container with running command with exec command
+10. docker container stop "Name of container"
+11. docker container rm "Name of container"
+12. docker container ls -a (list out all container and and also check whther the container is in the stopped state)
+13. docker container run -d --name web1 --publish 8080:80 test:latest
+14. docker image build -t test:latest
+15. docker image pull ubuntu:latest
+16. docker image pull <repos>:<tag>
+17. docker image pull -a ubuntu - it will download all the images with different tag
+18. docker image ls --filter dangling=true ( --filter tag will return the list of images from docker image. A dangling is an image that is no longer tagged)
+19. docker image ls --filter=reference="*:latest" ( it will filter out the image with latest tag)
+    Docker currently support 4 filters
+        1. Dangling
+        2. before
+        3. since
+        4. label
+    docker image ls --filter since=test
+    docker image ls --filter before=test
+    docker image ls --filter dangling=true or false
+    docker image ls --filter label="This is my repository"
+20. docker image ls --format "{{.Size}}" ( - Return output as the image size)
+    Output
+         71.5MB
+         5.55MB
+         212MB
+21. docker image ls --format "{{.Repository}}:{{.Tag}}:{{.Size}}" 
+    Output
+         test:latest:71.5MB
+         alpine:latest:5.55MB
+         nigelpoulton/tu-demo:v2:212MB
+22. docker search ankittyagi366 ( display list of images with the docker hub account ankittyagi366).
+23. docker search alpine --filter "is-official=true" ( Return the offical image of alpine )
+24. docker search alpine --limit=30 ( display the images of alpine with limit of 30 . Note maximum limit will be 100)
+25. docker image inspect ubuntu:latest ( display the json file contains all information like layers of an image and many more)
